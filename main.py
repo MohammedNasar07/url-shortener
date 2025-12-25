@@ -15,7 +15,14 @@ from schemas import ShortenRequest, ShortenResponse, URLStats
 load_dotenv()
 
 # Create FastAPI app
-app = FastAPI(title="URL Shortener", version="1.0")
+# Create FastAPI app
+app = FastAPI(
+    title="URL Shortener",
+    version="1.0",
+    docs_url="/docs",  # Swagger UI
+    redoc_url="/redoc",  # Alternative ReDoc UI
+)
+
 
 # Create tables in database if they don’t exist
 Base.metadata.create_all(bind=engine)
